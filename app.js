@@ -4,11 +4,20 @@
   const wspLink = (texto) =>
     `https://wa.me/${NEGOCIO.whatsapp}` + (texto ? `?text=${encodeURIComponent(texto)}` : "");
 
+  // Emoji de respaldo por categoría (se ve si falta la foto)
+  const EMOJI = {
+    Gaseosas: "🥤", Cervezas: "🍺", Aperitivos: "🍹", Destilados: "🥃", Licores: "🍫",
+    "Espumantes y Sidras": "🍾", Vinos: "🍷", Energizantes: "⚡", Jugos: "🧃", Aguas: "💧", Isotónicas: "🏃",
+  };
+  const foto = (src, emoji, clase = "ph") =>
+    `<div class="${clase}" data-emoji="${emoji || "🛒"}">${src ? `<img src="${src}" alt="" loading="lazy" onerror="this.remove()">` : ""}</div>`;
+
   // Índice de todos los productos (combos + lista) por id
   const productos = {};
-  COMBOS.forEach((c) => (productos[c.id] = { id: c.id, nombre: c.nombre, precio: c.precio }));
+  COMBOS.forEach((c) => (productos[c.id] = { id: c.id, nombre: c.nombre, precio: c.precio, foto: c.foto, emoji: "🎁" }));
   CATEGORIAS.forEach((cat) =>
-    cat.items.forEach(([id, nombre, precio]) => (productos[id] = { id, nombre, precio, cat: cat.nombre }))
+    cat.items.forEach(([id, nombre, precio]) =>
+      (productos[id] = { id, nombre, precio, cat: cat.nombre, foto: cat.foto, emoji: EMOJI[cat.nombre] }))
   );
 
   // ---------- Carrito ----------
@@ -40,6 +49,7 @@
   function renderCombos() {
     $("#listaCombos").innerHTML = COMBOS.map((c) => `
       <article class="combo">
+        ${foto(c.foto, "🎁", "ph combo-ph")}
         <span class="tag">${c.tag}</span>
         <h3>${c.nombre}</h3>
         <p>${c.detalle}</p>
@@ -57,7 +67,7 @@
   function renderDestacados() {
     $("#listaDestacados").innerHTML = DESTACADOS.filter((id) => productos[id]).map((id) => {
       const p = productos[id];
-      return `<div class="card"><div class="name">${p.nombre}</div>
+      return `<div class="card">${foto(p.foto, p.emoji, "ph card-ph")}<span class="mini-tag">${p.cat}</span><div class="name">${p.nombre}</div>
         <div class="row"><span class="price">${pesos(p.precio)}</span>${control(id)}</div></div>`;
     }).join("");
   }
@@ -72,6 +82,14 @@
       `<button class="chip${n === filtroCat ? " active" : ""}" data-cat="${n}">${n}</button>`).join("");
   }
 
+  function renderCategorias() {
+    $("#listaCategorias").innerHTML = CATEGORIAS.map((c) => `
+      <button class="cat-tile" data-ir="${c.nombre}">
+        ${foto(c.foto, EMOJI[c.nombre])}
+        <span class="cat-name">${c.nombre}<small>${c.items.length} productos</small></span>
+      </button>`).join("");
+  }
+
   function renderCatalogo() {
     const t = normal(filtroTexto.trim());
     let hay = false;
@@ -81,8 +99,8 @@
         const items = c.items.filter(([, nombre]) => !t || normal(nombre).includes(t));
         if (!items.length) return "";
         hay = true;
-        return `<div class="cat"><h3>${c.nombre}</h3><ul class="items">${items.map(([id, nombre, precio]) =>
-          `<li class="item"><span class="name">${nombre}</span><span class="price">${pesos(precio)}</span>${control(id)}</li>`
+        return `<div class="cat"><div class="cat-banner">${foto(c.foto, EMOJI[c.nombre])}<h3>${c.nombre}</h3></div><ul class="items">${items.map(([id, nombre, precio]) =>
+          `<li class="item">${foto(c.foto, EMOJI[c.nombre], "ph thumb")}<span class="name">${nombre}</span><span class="price">${pesos(precio)}</span>${control(id)}</li>`
         ).join("")}</ul></div>`;
       }).join("");
     $("#sinResultados").hidden = hay;
@@ -128,8 +146,14 @@
     const add = e.target.closest("[data-add]");
     const sub = e.target.closest("[data-sub]");
     const chip = e.target.closest("[data-cat]");
+    const ir = e.target.closest("[data-ir]");
     if (add) cambiar(add.dataset.add, 1);
     else if (sub) cambiar(sub.dataset.sub, -1);
+    else if (ir) {
+      filtroCat = ir.dataset.ir; filtroTexto = ""; $("#buscar").value = "";
+      renderChips(); renderCatalogo();
+      $("#lista").scrollIntoView({ behavior: "smooth" });
+    }
     else if (chip) { filtroCat = chip.dataset.cat; renderChips(); renderCatalogo(); }
   });
 
@@ -188,5 +212,6 @@
   $("#actualizado").textContent = `Precios actualizados al ${NEGOCIO.actualizado}. Sujetos a modificación.`;
 
   renderChips();
+  renderCategorias();
   refrescar();
 })();

@@ -14,13 +14,13 @@ const NEGOCIO = {
   actualizado: "20/09/2026",
 };
 
-// Combos que se muestran destacados arriba de todo
+// Combos destacados (foto: imagen de la tarjeta)
 const COMBOS = [
-  { id: "c1", nombre: "Combo Fernet + 2 Cocas", detalle: "Fernet 750cc + 2 Coca Cola 1,75L", precio: 21900, tag: "El más pedido" },
-  { id: "c2", nombre: "Combo Buhero + Absolut", detalle: "Fernet Buhero 700ml + Absolut 700ml", precio: 27300, tag: "Para la previa" },
-  { id: "c3", nombre: "Combo Aperol + 2 Cepitas", detalle: "Aperol 750ml + 2 Cepitas botella", precio: 14500, tag: "Spritz" },
-  { id: "c4", nombre: "Combo 2 Federico + 4 Speed", detalle: "2 Federico de Alvear 750ml + 4 Speed 250ml", precio: 14600, tag: "Brindis" },
-  { id: "c5", nombre: "Combo Viñas + 2 Manaos", detalle: "Vino Viñas + 2 Manaos 2,25L", precio: 5300, tag: "Económico" },
+  { id: "c1", foto: "assets/fotos/aperitivos.jpg", nombre: "Combo Fernet + 2 Cocas", detalle: "Fernet 750cc + 2 Coca Cola 1,75L", precio: 21900, tag: "El más pedido" },
+  { id: "c2", foto: "assets/fotos/destilados.jpg", nombre: "Combo Buhero + Absolut", detalle: "Fernet Buhero 700ml + Absolut 700ml", precio: 27300, tag: "Para la previa" },
+  { id: "c3", foto: "assets/fotos/aperitivos.jpg", nombre: "Combo Aperol + 2 Cepitas", detalle: "Aperol 750ml + 2 Cepitas botella", precio: 14500, tag: "Spritz" },
+  { id: "c4", foto: "assets/fotos/espumantes.jpg", nombre: "Combo 2 Federico + 4 Speed", detalle: "2 Federico de Alvear 750ml + 4 Speed 250ml", precio: 14600, tag: "Brindis" },
+  { id: "c5", foto: "assets/fotos/vinos.jpg", nombre: "Combo Viñas + 2 Manaos", detalle: "Vino Viñas + 2 Manaos 2,25L", precio: 5300, tag: "Económico" },
 ];
 
 // Productos destacados ("Lo que más sale")
@@ -30,6 +30,7 @@ const DESTACADOS = ["g1", "g6", "b12", "b6", "ap6", "ap7", "en3", "b8"];
 const CATEGORIAS = [
   {
     nombre: "Gaseosas",
+    foto: "assets/fotos/gaseosas.jpg",
     items: [
       ["g1", "Coca Cola Regular 1.75L x8", 27600],
       ["g2", "Coca Cola Regular 2.25L x8", 36600],
@@ -62,6 +63,7 @@ const CATEGORIAS = [
   },
   {
     nombre: "Cervezas",
+    foto: "assets/fotos/cervezas.jpg",
     items: [
       ["b1", "Amstel 473ml x6 lata", 10700],
       ["b2", "Andes Origen Rubia 473cc x6 lata", 15600],
@@ -86,6 +88,7 @@ const CATEGORIAS = [
   },
   {
     nombre: "Aperitivos",
+    foto: "assets/fotos/aperitivos.jpg",
     items: [
       ["ap1", "Aperol 750ml", 10100],
       ["ap2", "Campari 750ml", 10000],
@@ -101,6 +104,7 @@ const CATEGORIAS = [
   },
   {
     nombre: "Destilados",
+    foto: "assets/fotos/destilados.jpg",
     items: [
       ["d1", "Gin Gordon's 700ml", 13600],
       ["d2", "Sky Común 700ml", 8300],
@@ -114,10 +118,12 @@ const CATEGORIAS = [
   },
   {
     nombre: "Licores",
+    foto: "assets/fotos/licores.jpg",
     items: [["l1", "Baileys Original 750ml", 33900]],
   },
   {
     nombre: "Espumantes y Sidras",
+    foto: "assets/fotos/espumantes.jpg",
     items: [
       ["e1", "Chandon Extra Brut 750ml", 17500],
       ["e2", "Dada Extra Brut 750ml", 6700],
@@ -127,6 +133,7 @@ const CATEGORIAS = [
   },
   {
     nombre: "Vinos",
+    foto: "assets/fotos/vinos.jpg",
     items: [
       ["v1", "Alma Mora Blend Blanco 750ml", 5600],
       ["v2", "Alma Mora Chardonnay 750ml", 5800],
@@ -150,6 +157,7 @@ const CATEGORIAS = [
   },
   {
     nombre: "Energizantes",
+    foto: "assets/fotos/energizantes.jpg",
     items: [
       ["en1", "Monster Energy lata 473ml x6 Mango", 16000],
       ["en2", "Monster Energy Ultra Blanco x6", 16000],
@@ -161,6 +169,7 @@ const CATEGORIAS = [
   },
   {
     nombre: "Jugos",
+    foto: "assets/fotos/jugos.jpg",
     items: [
       ["j1", "Cepita Naranja botella 995ml x6", 14300],
       ["j2", "Cepita Naranja botella 300ml x6", 7500],
@@ -173,6 +182,7 @@ const CATEGORIAS = [
   },
   {
     nombre: "Aguas",
+    foto: "assets/fotos/aguas.jpg",
     items: [
       ["a1", "Agua Manaos 2L x6", 5500],
       ["a2", "Agua Manaos 6L bidón", 2500],
@@ -195,6 +205,7 @@ const CATEGORIAS = [
   },
   {
     nombre: "Isotónicas",
+    foto: "assets/fotos/isotonicas.jpg",
     items: [
       ["i1", "Powerade Mountain Blue 500ml x6", 8300],
       ["i2", "Powerade Frutos Rojos 500ml x6", 8300],
