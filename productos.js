@@ -27,6 +27,13 @@ const COMBOS = [
   { id: "c2", foto: "assets/fotos/destilados.jpg", nombre: "Combo Buhero + Absolut", detalle: "Fernet Buhero 700ml + Absolut 700ml", precio: 27300, tag: "Fuerte" },
 ];
 
+// Fotos reales de cada producto (opcional). Subí la foto a assets/productos/
+// y agregá una línea con el id del producto. Si no tiene, usa la foto de la categoría.
+const FOTOS_PRODUCTOS = {
+  // g1: "assets/productos/coca-175.jpg",
+  // ap7: "assets/productos/fernet-750.jpg",
+};
+
 // Productos destacados ("Lo que más sale")
 const DESTACADOS = ["g1", "g6", "b12", "b6", "ap6", "ap7", "en3", "b8"];
 

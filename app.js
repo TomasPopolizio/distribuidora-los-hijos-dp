@@ -17,7 +17,7 @@
   COMBOS.forEach((c) => (productos[c.id] = { id: c.id, nombre: c.nombre, precio: c.precio, foto: c.foto, emoji: "🎁" }));
   CATEGORIAS.forEach((cat) =>
     cat.items.forEach(([id, nombre, precio]) =>
-      (productos[id] = { id, nombre, precio, cat: cat.nombre, foto: cat.foto, emoji: EMOJI[cat.nombre] }))
+      (productos[id] = { id, nombre, precio, cat: cat.nombre, foto: FOTOS_PRODUCTOS[id] || cat.foto, emoji: EMOJI[cat.nombre] }))
   );
 
   // ---------- Carrito ----------
@@ -108,7 +108,7 @@
         if (!items.length) return "";
         hay = true;
         return `<div class="cat"><div class="cat-banner">${foto(c.foto, EMOJI[c.nombre])}<h3>${c.nombre}</h3></div><ul class="items">${items.map(([id, nombre, precio]) =>
-          `<li class="item">${foto(c.foto, EMOJI[c.nombre], "ph thumb")}<span class="name">${nombre}</span><span class="price">${pesos(precio)}</span>${control(id)}</li>`
+          `<li class="item">${foto(FOTOS_PRODUCTOS[id] || c.foto, EMOJI[c.nombre], "ph thumb")}<span class="name">${nombre}</span><span class="price">${pesos(precio)}</span>${control(id)}</li>`
         ).join("")}</ul></div>`;
       }).join("");
     $("#sinResultados").hidden = hay;
@@ -220,6 +220,9 @@
   $("#insta").textContent = "@" + NEGOCIO.instagram;
   $("#mapa").href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(NEGOCIO.direccion + ", Buenos Aires")}`;
   $("#mapa").textContent = NEGOCIO.direccion;
+  const lugar = encodeURIComponent(NEGOCIO.direccion.replace(" - ", ", ") + ", Buenos Aires, Argentina");
+  $("#mapaEmbed").src = `https://www.google.com/maps?q=${lugar}&z=16&output=embed`;
+  $("#comoLlegar").href = `https://www.google.com/maps/dir/?api=1&destination=${lugar}`;
   $("#horarioHero").textContent = `🏪 Retiro en el local · Jue a Sáb de 9 a 19 hs`;
   $("#horarioInfo").textContent = NEGOCIO.horario;
   $("#retiroInfo").textContent = `${NEGOCIO.direccion} · ${NEGOCIO.horario}. No hacemos envíos.`;

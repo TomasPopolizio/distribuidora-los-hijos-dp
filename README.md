@@ -16,6 +16,12 @@ Todo está en **`productos.js`**:
 - `COMBOS` → los combos de arriba.
 - `DESTACADOS` → ids de los productos de "Lo que más sale".
 - `CATEGORIAS` → la lista completa: `["id", "Nombre", precio]`.
+- `FOTOS_PRODUCTOS` → foto propia de un producto (`id: "assets/productos/archivo.jpg"`).
+
+## Fotos
+- Combos: `assets/combos/` (flyers).
+- Categorías y fondo del inicio: `assets/fotos/` (ver `LEEME.md`).
+- Productos: `assets/productos/` + una línea en `FOTOS_PRODUCTOS`.
 
 ## Publicarla gratis (GitHub Pages)
 1. En el repo: **Settings → Pages**.
