@@ -31,12 +31,19 @@ const COMBOS = [
 // Fotos reales de cada producto (opcional). Subí la foto a assets/productos/
 // y agregá una línea con el id del producto. Si no tiene, usa la foto de la categoría.
 const FOTOS_PRODUCTOS = {
-  // g1: "assets/productos/coca-175.jpg",
-  // ap7: "assets/productos/fernet-750.jpg",
+  d2: "assets/productos/skyy.jpg",
+  en5: "assets/productos/speed.jpg",
+  ap10: "assets/productos/gancia.jpg",
+  g25: "assets/productos/sprite.jpg",
+  g15: "assets/productos/manaos.jpg",
+  v11: "assets/productos/vinas.jpg",
+  ap1: "assets/productos/aperol.jpg",
+  j1: "assets/productos/cepita.jpg",
+  e3: "assets/productos/federico.jpg",
 };
 
 // Productos destacados ("Lo que más sale")
-const DESTACADOS = ["g1", "g6", "b12", "b6", "ap6", "ap7", "en3", "b8"];
+const DESTACADOS = ["ap1", "d2", "ap10", "e3", "en5", "g25", "v11", "j1"];
 
 // Lista completa de precios
 const CATEGORIAS = [
@@ -119,8 +126,8 @@ const CATEGORIAS = [
     foto: "assets/fotos/destilados.jpg",
     items: [
       ["d1", "Gin Gordon's 700ml", 13600],
-      ["d2", "Sky Común 700ml", 8300],
-      ["d3", "Sky Raspberry 750ml", 9900],
+      ["d2", "Skyy Vodka 700ml", 8300],
+      ["d3", "Skyy Raspberry 750ml", 9900],
       ["d4", "Smirnoff", 8600],
       ["d5", "Smirnoff Ice Green Apple lata x6", 21000],
       ["d6", "Smirnoff Red Berries 473ml x6", 21000],

@@ -147,7 +147,7 @@ h2 { font-size: clamp(1.8rem, 6vw, 2.6rem); color: var(--orange); }
 @media (min-width: 700px) { .grid { grid-template-columns: repeat(4, 1fr); } }
 .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 0 0 12px; display: flex; flex-direction: column; gap: 6px; overflow: hidden; }
 .card > *:not(.card-ph) { margin-left: 12px; margin-right: 12px; }
-.card-ph { aspect-ratio: 1 / 1; margin-bottom: 4px; }
+.card-ph { aspect-ratio: 4 / 5; margin-bottom: 4px; }
 .mini-tag { align-self: flex-start; font-size: .7rem; font-weight: 800; text-transform: uppercase; color: var(--orange-2); letter-spacing: .4px; }
 .card .name { font-weight: 600; font-size: .92rem; flex: 1; }
 .card .row { display: flex; align-items: center; justify-content: space-between; gap: 6px; }
