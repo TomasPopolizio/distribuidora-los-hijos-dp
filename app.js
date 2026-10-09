@@ -220,6 +220,8 @@
   $("#insta").textContent = "@" + NEGOCIO.instagram;
   $("#mapa").href = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(NEGOCIO.direccion + ", Buenos Aires")}`;
   $("#mapa").textContent = NEGOCIO.direccion;
+  $("#mail").href = `mailto:${NEGOCIO.email}`;
+  $("#mail").textContent = NEGOCIO.email;
   const lugar = encodeURIComponent(NEGOCIO.direccion.replace(" - ", ", ") + ", Buenos Aires, Argentina");
   $("#mapaEmbed").src = `https://www.google.com/maps?q=${lugar}&z=16&output=embed`;
   $("#comoLlegar").href = `https://www.google.com/maps/dir/?api=1&destination=${lugar}`;

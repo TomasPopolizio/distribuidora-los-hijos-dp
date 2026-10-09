@@ -9,6 +9,8 @@
   <meta property="og:title" content="Distribuidora Los Hijos D.P.">
   <meta property="og:description" content="Combos y bebidas. Pedí fácil por WhatsApp.">
   <meta property="og:image" content="assets/logo.jpg">
+  <link rel="preload" as="image" href="assets/fotos/hero-movil.jpg" media="(max-width: 759px)">
+  <link rel="preload" as="image" href="assets/fotos/hero.jpg" media="(min-width: 760px)">
   <link rel="icon" href="assets/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -85,6 +87,10 @@
       <h2>Ubicación</h2>
       <p class="section-sub">Retirá tu pedido en el local. <b>No hacemos envíos.</b></p>
       <div class="ubicacion">
+        <figure class="local-foto">
+          <img src="assets/fotos/local.jpg" alt="Frente del local de Distribuidora Los Hijos D.P. en 1° de Mayo 1321" loading="lazy" width="900" height="1200">
+          <figcaption>Buscá el <b>cartel negro y naranja</b> en 1° de Mayo 1321</figcaption>
+        </figure>
         <div class="mapa-wrap">
           <iframe id="mapaEmbed" title="Mapa: Distribuidora Los Hijos D.P." loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
@@ -94,6 +100,7 @@
         <li><span>🕘</span><span id="horarioInfo"></span></li>
         <li><span>💬</span><a id="wspInfo" target="_blank" rel="noopener"></a></li>
         <li><span>📸</span><a id="insta" target="_blank" rel="noopener"></a></li>
+        <li><span>✉️</span><a id="mail"></a></li>
       </ul>
       <a class="btn btn-orange btn-block" id="comoLlegar" target="_blank" rel="noopener">📍 Cómo llegar</a>
         </div>

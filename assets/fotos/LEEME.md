@@ -2,7 +2,8 @@
 
 Poné acá las fotos (JPG, idealmente 800x600 o más) con estos nombres:
 
-- hero.jpg (fondo del inicio, horizontal)
+- hero.jpg y hero-movil.jpg (fondo del inicio, ya puesto: foto del local)
+- local.jpg (foto del frente en Ubicación, ya puesta)
 - gaseosas.jpg, cervezas.jpg, aperitivos.jpg, destilados.jpg, licores.jpg
 - espumantes.jpg, vinos.jpg, energizantes.jpg, jugos.jpg, aguas.jpg, isotonicas.jpg
 

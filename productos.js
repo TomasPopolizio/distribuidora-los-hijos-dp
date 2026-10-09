@@ -8,6 +8,7 @@ const NEGOCIO = {
   whatsapp: "5491131580752", // 11 3158 0752 (formato internacional, sin + ni espacios)
   whatsappVisible: "11 3158 0752",
   instagram: "distribuidoraloshijosd.p",
+  email: "distribuidora.loshijosdp@gmail.com",
   direccion: "1° de Mayo 1321 - Loma Hermosa",
   horario: "Jueves a sábado de 9 a 19 hs",
   // No hacemos envíos: todos los pedidos se retiran en el local
