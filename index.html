@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Distribuidora Los Hijos D.P.</title>
+  <meta name="description" content="Bebidas por mayor y menor en Loma Hermosa. Combos, gaseosas, cervezas, aperitivos y más. Pedí por WhatsApp y retirá en el local de jueves a sábado de 9 a 19 hs.">
+  <meta name="theme-color" content="#0b0b0b">
+  <meta property="og:title" content="Distribuidora Los Hijos D.P.">
+  <meta property="og:description" content="Combos y bebidas. Pedí fácil por WhatsApp.">
+  <meta property="og:image" content="assets/logo.jpg">
+  <link rel="icon" href="assets/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a href="#inicio" class="brand">
+      <img src="assets/logo-badge.jpg" alt="" width="40" height="40">
+      <span>Los Hijos <b>D.P.</b></span>
+    </a>
+    <button class="cart-btn" id="abrirCarrito" aria-label="Ver mi pedido">
+      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M7 18a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm10 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM5.2 4l.4 2H20a1 1 0 0 1 1 1.2l-1.5 7A2 2 0 0 1 17.5 16H8a2 2 0 0 1-2-1.6L3.4 2H1V0h3.4a1 1 0 0 1 1 .8L5.2 4Z" transform="translate(1 1) scale(.92)"/></svg>
+      <span>Mi pedido</span>
+      <span class="badge" id="contador">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <img class="hero-logo" src="assets/logo.jpg" alt="Distribuidora Los Hijos D.P." width="1280" height="699">
+      <p class="hero-sub">Bebidas por mayor y menor · Loma Hermosa</p>
+      <p class="horario-pill" id="horarioHero"></p>
+      <div class="hero-actions">
+        <a class="btn btn-wsp" id="wspHero" target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.1l-1 1.3c-.2.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 2.1.9 3 1 4 .8.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5l-.6-.3Z"/></svg>
+          Pedir por WhatsApp
+        </a>
+        <a class="btn btn-ghost" href="#combos">Ver combos</a>
+      </div>
+    </section>
+
+    <nav class="quick" aria-label="Secciones">
+      <a href="#combos">🔥 Combos</a>
+      <a href="#destacados">⭐ Lo que más sale</a>
+      <a href="#lista">📋 Lista completa</a>
+      <a href="#contacto">📍 Dónde retirar</a>
+    </nav>
+
+    <section class="section" id="combos">
+      <h2>Combos</h2>
+      <p class="section-sub">Tocá <b>Agregar</b> para sumarlo a tu pedido, o <b>Pedir ya</b> para mandarlo directo por WhatsApp.</p>
+      <div class="combos" id="listaCombos"></div>
+    </section>
+
+    <section class="section" id="destacados">
+      <h2>Lo que más sale</h2>
+      <div class="grid" id="listaDestacados"></div>
+    </section>
+
+    <section class="section" id="lista">
+      <h2>Lista de precios</h2>
+      <p class="section-sub" id="actualizado"></p>
+      <input class="search" id="buscar" type="search" placeholder="Buscar: fernet, coca, quilmes…" autocomplete="off">
+      <div class="chips" id="chips"></div>
+      <div id="catalogo"></div>
+      <p class="empty" id="sinResultados" hidden>No encontramos ese producto. ¡Consultanos por WhatsApp!</p>
+    </section>
+
+    <section class="section contacto" id="contacto">
+      <h2>Dónde retirar</h2>
+      <ul class="info">
+        <li><span>📍</span><a id="mapa" target="_blank" rel="noopener"></a></li>
+        <li><span>🕘</span><span id="horarioInfo"></span></li>
+        <li><span>💬</span><a id="wspInfo" target="_blank" rel="noopener"></a></li>
+        <li><span>📸</span><a id="insta" target="_blank" rel="noopener"></a></li>
+      </ul>
+      <p class="legal">Precios sujetos a modificación sin previo aviso. Consultá disponibilidad y stock. Venta de alcohol solo a mayores de 18 años.</p>
+    </section>
+  </main>
+
+  <!-- Barra inferior con total del pedido -->
+  <div class="bottom-bar" id="barraPedido" hidden>
+    <div><small>Tu pedido</small><strong id="totalBarra">$ 0</strong></div>
+    <button class="btn btn-wsp" id="verPedido">Ver y enviar</button>
+  </div>
+
+  <a class="fab" id="fab" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+    <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.1l-1 1.3c-.2.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 2.1.9 3 1 4 .8.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5l-.6-.3Z"/></svg>
+  </a>
+
+  <!-- Panel del pedido -->
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="carrito" aria-hidden="true" aria-label="Mi pedido">
+    <div class="drawer-head">
+      <h3>Mi pedido</h3>
+      <button class="close" id="cerrarCarrito" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="drawer-body">
+      <ul class="cart-list" id="itemsCarrito"></ul>
+      <p class="empty" id="carritoVacio">Todavía no agregaste nada. Tocá <b>+</b> en los productos.</p>
+      <div class="cart-total"><span>Total estimado</span><strong id="totalCarrito">$ 0</strong></div>
+
+      <form id="formPedido" class="form">
+        <label>Tu nombre
+          <input name="nombre" required autocomplete="name" placeholder="Ej: Juan">
+        </label>
+        <div class="retiro">
+          <strong>🏪 Retiro en el local</strong>
+          <span id="retiroInfo"></span>
+        </div>
+        <fieldset class="toggle">
+          <legend>¿Qué día pasás a retirar?</legend>
+          <label><input type="radio" name="dia" value="Jueves" checked> Jue</label>
+          <label><input type="radio" name="dia" value="Viernes"> Vie</label>
+          <label><input type="radio" name="dia" value="Sábado"> Sáb</label>
+        </fieldset>
+        <label>Forma de pago
+          <select name="pago">
+            <option>Efectivo</option>
+            <option>Transferencia</option>
+            <option>Mercado Pago</option>
+          </select>
+        </label>
+        <label>Comentarios (opcional)
+          <textarea name="notas" rows="2" placeholder="Horario aproximado, algo que quieras agregar…"></textarea>
+        </label>
+        <button type="submit" class="btn btn-wsp btn-block">Enviar pedido por WhatsApp</button>
+        <button type="button" class="link" id="vaciar">Vaciar pedido</button>
+      </form>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="productos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
