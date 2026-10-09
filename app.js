@@ -49,19 +49,27 @@
   function renderCombos() {
     $("#listaCombos").innerHTML = COMBOS.map((c) => `
       <article class="combo">
-        ${foto(c.foto, "🎁", "ph combo-ph")}
-        <span class="tag">${c.tag}</span>
+        <button class="ph combo-ph" data-emoji="" data-ver="${c.foto}" aria-label="Ver ${c.nombre} en grande">
+          <span class="ph-text">${c.nombre.replace(/^(Combo|Promo) /, "$1<br>")}<b>${pesos(c.precio)}</b></span>
+          <img src="${c.foto}" alt="${c.nombre}" loading="lazy" onerror="this.parentNode.removeAttribute('data-ver'); this.remove()">
+          <span class="tag">${c.tag}</span>
+        </button>
         <h3>${c.nombre}</h3>
         <p>${c.detalle}</p>
         <div class="price">${pesos(c.precio)}</div>
-        <div class="actions" data-slot="${c.id}">
-          ${carrito[c.id]
-            ? control(c.id)
-            : `<button class="btn btn-orange" data-add="${c.id}">Agregar</button>`}
-          <a class="btn btn-wsp" target="_blank" rel="noopener"
-             href="${wspLink(`Hola! Quiero pedir el ${c.nombre} (${c.detalle}) - ${pesos(c.precio)}`)}">Pedir ya</a>
-        </div>
+        <div class="actions" data-slot="${c.id}">${accionesCombo(c)}</div>
       </article>`).join("");
+  }
+
+  function accionesCombo(c) {
+    return (carrito[c.id] ? control(c.id) : `<button class="btn btn-orange" data-add="${c.id}">Agregar</button>`) +
+      `<a class="btn btn-wsp" target="_blank" rel="noopener"
+         href="${wspLink(`Hola! Quiero pedir el ${c.nombre} (${c.detalle}) - ${pesos(c.precio)}`)}">Pedir ya</a>`;
+  }
+
+  // Actualiza solo los botones (así el carrusel no vuelve al principio)
+  function actualizarCombos() {
+    COMBOS.forEach((c) => { const el = document.querySelector(`[data-slot="${c.id}"]`); if (el) el.innerHTML = accionesCombo(c); });
   }
 
   function renderDestacados() {
@@ -121,7 +129,7 @@
   }
 
   function refrescar() {
-    renderCombos();
+    actualizarCombos();
     renderDestacados();
     renderCatalogo();
     renderCarrito();
@@ -147,8 +155,14 @@
     const sub = e.target.closest("[data-sub]");
     const chip = e.target.closest("[data-cat]");
     const ir = e.target.closest("[data-ir]");
+    const ver = e.target.closest("[data-ver]");
     if (add) cambiar(add.dataset.add, 1);
     else if (sub) cambiar(sub.dataset.sub, -1);
+    else if (ver && ver.querySelector("img")) {
+      $("#visorImg").src = ver.dataset.ver;
+      $("#visor").hidden = false;
+    }
+    else if (e.target.closest("#visor")) $("#visor").hidden = true;
     else if (ir) {
       filtroCat = ir.dataset.ir; filtroTexto = ""; $("#buscar").value = "";
       renderChips(); renderCatalogo();
@@ -167,7 +181,7 @@
   $("#verPedido").addEventListener("click", abrir);
   $("#cerrarCarrito").addEventListener("click", cerrar);
   $("#overlay").addEventListener("click", cerrar);
-  document.addEventListener("keydown", (e) => { if (e.key === "Escape") cerrar(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") { cerrar(); $("#visor").hidden = true; } });
 
   const form = $("#formPedido");
 
@@ -213,5 +227,6 @@
 
   renderChips();
   renderCategorias();
+  renderCombos();
   refrescar();
 })();

@@ -16,11 +16,15 @@ const NEGOCIO = {
 
 // Combos destacados (foto: imagen de la tarjeta)
 const COMBOS = [
-  { id: "c1", foto: "assets/fotos/aperitivos.jpg", nombre: "Combo Fernet + 2 Cocas", detalle: "Fernet 750cc + 2 Coca Cola 1,75L", precio: 21900, tag: "El más pedido" },
-  { id: "c2", foto: "assets/fotos/destilados.jpg", nombre: "Combo Buhero + Absolut", detalle: "Fernet Buhero 700ml + Absolut 700ml", precio: 27300, tag: "Para la previa" },
-  { id: "c3", foto: "assets/fotos/aperitivos.jpg", nombre: "Combo Aperol + 2 Cepitas", detalle: "Aperol 750ml + 2 Cepitas botella", precio: 14500, tag: "Spritz" },
-  { id: "c4", foto: "assets/fotos/espumantes.jpg", nombre: "Combo 2 Federico + 4 Speed", detalle: "2 Federico de Alvear 750ml + 4 Speed 250ml", precio: 14600, tag: "Brindis" },
-  { id: "c5", foto: "assets/fotos/vinos.jpg", nombre: "Combo Viñas + 2 Manaos", detalle: "Vino Viñas + 2 Manaos 2,25L", precio: 5300, tag: "Económico" },
+  // Con flyer (foto real)
+  { id: "c6", foto: "assets/combos/skyy-speed.webp", nombre: "Combo Skyy + 3 Speed", detalle: "Skyy Vodka 700ml + 3 Speed 250ml", precio: 12500, tag: "Nuevo" },
+  { id: "c7", foto: "assets/combos/gancia-sprite.webp", nombre: "Promo Gancia + 2 Sprite", detalle: "Gancia Americano + 2 Sprite 2,25L", precio: 15500, tag: "Promo" },
+  { id: "c3", foto: "assets/combos/aperol-cepitas.webp", nombre: "Combo Aperol + 2 Cepitas", detalle: "Aperol 750ml + 2 Cepitas botella", precio: 14500, tag: "El aperitivo perfecto" },
+  { id: "c4", foto: "assets/combos/federico-speed.webp", nombre: "Combo 2 Federico + 4 Speed", detalle: "2 Federico de Alvear 750ml + 4 Speed 250ml", precio: 14500, tag: "Burbujas" },
+  { id: "c5", foto: "assets/combos/vinas-manaos.webp", nombre: "Combo Viñas + 2 Manaos", detalle: "Viñas de Balbo + 2 Manaos 2,25L", precio: 5300, tag: "Clásico" },
+  // Sin flyer todavía (usan la foto de la categoría)
+  { id: "c1", foto: "assets/fotos/aperitivos.jpg", nombre: "Combo Fernet + 2 Cocas", detalle: "Fernet 750cc + 2 Coca Cola 1,75L", precio: 21900, tag: "Para la previa" },
+  { id: "c2", foto: "assets/fotos/destilados.jpg", nombre: "Combo Buhero + Absolut", detalle: "Fernet Buhero 700ml + Absolut 700ml", precio: 27300, tag: "Fuerte" },
 ];
 
 // Productos destacados ("Lo que más sale")

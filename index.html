@@ -23,8 +23,8 @@
     </a>
     <nav class="menu" aria-label="Menú">
       <a href="#inicio">Inicio</a>
-      <a href="#destacados">Lo más vendido</a>
       <a href="#combos">Combos</a>
+      <a href="#destacados">Lo más vendido</a>
       <a href="#categorias">Productos</a>
       <a href="#lista">Precios</a>
       <a href="#contacto">Ubicación</a>
@@ -43,7 +43,7 @@
         <h1>Todo lo que necesitás para tu <span>negocio, juntada</span> o evento.</h1>
         <p class="hero-sub">Precios por cantidad, combos armados y las mejores marcas de bebidas. Pedí fácil y rápido por WhatsApp.</p>
         <div class="hero-actions">
-          <a class="btn btn-orange" href="#destacados">Ver lo más vendido</a>
+          <a class="btn btn-orange" href="#combos">Ver combos</a>
           <a class="btn btn-wsp" id="wspHero" target="_blank" rel="noopener">
             <svg viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-3.9 1 1-3.8-.3-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.1l-1 1.3c-.2.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.6 5.7 5 2.1.9 3 1 4 .8.7-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5l-.6-.3Z"/></svg>
             Pedir por WhatsApp
@@ -53,18 +53,18 @@
       </div>
     </section>
 
-    <section class="section destacados" id="destacados">
+    <section class="section destacados" id="combos">
+      <h2>🔥 Combos que más salen</h2>
+      <p class="section-sub">Deslizá para ver todos. Tocá <b>Agregar</b> para sumarlo a tu pedido o <b>Pedir ya</b> para mandarlo directo por WhatsApp.</p>
+      <div class="combos" id="listaCombos"></div>
+    </section>
+
+    <section class="section" id="destacados">
       <div class="section-head">
-        <h2>🔥 Lo que más sale</h2>
+        <h2>⭐ Lo que más sale</h2>
         <p class="section-sub">Los productos que más se llevan. Tocá <b>+</b> para sumarlos a tu pedido.</p>
       </div>
       <div class="grid" id="listaDestacados"></div>
-    </section>
-
-    <section class="section" id="combos">
-      <h2>Combos</h2>
-      <p class="section-sub">Tocá <b>Agregar</b> para sumarlo a tu pedido, o <b>Pedir ya</b> para mandarlo directo por WhatsApp.</p>
-      <div class="combos" id="listaCombos"></div>
     </section>
 
     <section class="section" id="categorias">
@@ -144,6 +144,8 @@
       </form>
     </div>
   </aside>
+
+  <div class="visor" id="visor" hidden><img id="visorImg" alt=""><span>Tocá para cerrar</span></div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
