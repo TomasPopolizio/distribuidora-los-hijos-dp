@@ -51,6 +51,7 @@
             Pedir por WhatsApp
           </a>
         </div>
+        <a class="tienda-link" id="tiendaHero" target="_blank" rel="noopener" hidden>💳 ¿Preferís pagar online? <b>Comprá en nuestra tienda</b></a>
         <p class="horario-pill" id="horarioHero"></p>
       </div>
     </section>
@@ -156,6 +157,7 @@
           <textarea name="notas" rows="2" placeholder="Horario aproximado, algo que quieras agregar…"></textarea>
         </label>
         <button type="submit" class="btn btn-wsp btn-block">Enviar pedido por WhatsApp</button>
+        <a class="btn btn-ghost btn-block" id="tiendaCarrito" target="_blank" rel="noopener" hidden>💳 Pagar online en la tienda</a>
         <button type="button" class="link" id="vaciar">Vaciar pedido</button>
       </form>
     </div>
@@ -166,6 +168,7 @@
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="productos.js"></script>
+  <script src="tienda.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

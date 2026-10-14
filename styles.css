@@ -78,6 +78,11 @@ h2 { font-size: clamp(1.8rem, 6vw, 2.6rem); color: var(--orange); }
 .hero-actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 .horario-pill { display: inline-block; margin: 22px 0 0; padding: 8px 14px; border-radius: 999px; background: rgba(0,0,0,.55); border: 1px solid var(--orange); color: var(--orange-2); font-weight: 800; font-size: .9rem; }
 
+.tienda-link { display: block; margin: 16px auto 0; color: #ddd; font-size: .95rem; text-decoration: none; }
+.tienda-link b { color: var(--orange-2); text-decoration: underline; }
+.pagar-online { align-self: flex-start; font-size: .82rem; font-weight: 700; color: var(--orange-2); text-decoration: none; margin-top: 2px; }
+.pagar-online:hover { text-decoration: underline; }
+
 /* Fotos (con emoji de respaldo si no hay imagen) */
 .ph { position: relative; overflow: hidden; background: radial-gradient(circle at 50% 40%, #3a1d08, #120a04); }
 .ph::before { content: attr(data-emoji); position: absolute; inset: 0; display: grid; place-items: center; font-size: 2.6rem; }

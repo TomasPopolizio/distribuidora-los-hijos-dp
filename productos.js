@@ -9,6 +9,9 @@ const NEGOCIO = {
   whatsappVisible: "11 3158 0752",
   instagram: "distribuidoraloshijosd.p",
   email: "distribuidora.loshijosdp@gmail.com",
+  // Link de la tienda en Tiendanube (ej: "https://loshijosdp.mitiendanube.com").
+  // Si queda vacío, no se muestran los botones de "Comprar online".
+  tienda: "",
   direccion: "1° de Mayo 1321 - Loma Hermosa",
   horario: "Jueves a sábado de 9 a 19 hs",
   // No hacemos envíos: todos los pedidos se retiran en el local

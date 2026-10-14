@@ -1,6 +1,10 @@
 (() => {
   const $ = (s) => document.querySelector(s);
   const pesos = (n) => "$ " + n.toLocaleString("es-AR");
+  const tienda = (NEGOCIO.tienda || "").replace(/\/+$/, "");
+  const linkTienda = (id) => tienda && TIENDA_SLUGS[id] ? `${tienda}/productos/${TIENDA_SLUGS[id]}/` : "";
+  const botonTienda = (id) => linkTienda(id)
+    ? `<a class="pagar-online" href="${linkTienda(id)}" target="_blank" rel="noopener">💳 Pagar online</a>` : "";
   const wspLink = (texto) =>
     `https://wa.me/${NEGOCIO.whatsapp}` + (texto ? `?text=${encodeURIComponent(texto)}` : "");
 
@@ -58,6 +62,7 @@
         <p>${c.detalle}</p>
         <div class="price">${pesos(c.precio)}</div>
         <div class="actions" data-slot="${c.id}">${accionesCombo(c)}</div>
+        ${botonTienda(c.id)}
       </article>`).join("");
   }
 
@@ -76,7 +81,7 @@
     $("#listaDestacados").innerHTML = DESTACADOS.filter((id) => productos[id]).map((id) => {
       const p = productos[id];
       return `<div class="card">${foto(p.foto, p.emoji, "ph card-ph")}<span class="mini-tag">${p.cat}</span><div class="name">${p.nombre}</div>
-        <div class="row"><span class="price">${pesos(p.precio)}</span>${control(id)}</div></div>`;
+        <div class="row"><span class="price">${pesos(p.precio)}</span>${control(id)}</div>${botonTienda(id)}</div>`;
     }).join("");
   }
 
@@ -228,6 +233,10 @@
   $("#horarioHero").textContent = `🏪 Retiro en el local · Jue a Sáb de 9 a 19 hs`;
   $("#horarioInfo").textContent = NEGOCIO.horario;
   $("#retiroInfo").textContent = `${NEGOCIO.direccion} · ${NEGOCIO.horario}. No hacemos envíos.`;
+  if (tienda) {
+    $("#tiendaHero").href = tienda; $("#tiendaHero").hidden = false;
+    $("#tiendaCarrito").href = tienda; $("#tiendaCarrito").hidden = false;
+  }
   $("#actualizado").textContent = `Precios actualizados al ${NEGOCIO.actualizado}. Sujetos a modificación.`;
 
   renderChips();
