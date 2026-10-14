@@ -279,3 +279,7 @@ body.has-cart .fab { bottom: calc(88px + env(safe-area-inset-bottom)); }
   .card .row { flex-wrap: wrap; }
   .brand { font-size: 1.1rem; }
 }
+
+/* Título de combos centrado */
+#combos > h2, #combos > .section-sub { text-align: center; }
+#combos > .section-sub { max-width: 640px; margin-left: auto; margin-right: auto; }
